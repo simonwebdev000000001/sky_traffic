@@ -69,8 +69,8 @@ class Login extends PureComponent {
                         <Col componentClass={ControlLabel} sm={2}> Email </Col>
                         <Col sm={10}>
                             <FormControl
-                                type="email"
-                                placeholder="Email"
+                                type="text"
+                                placeholder="UserName"
                                 value={email}
                                 name="email"
                                 onChange={this.handleChange}

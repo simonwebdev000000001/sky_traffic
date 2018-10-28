@@ -12,17 +12,23 @@ import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 
 
+
+import { isLogedIn } from './redux/actions/auth'
+
 class AppRoutes extends Component {
 
     constructor(props) {
-        super(props) 
+        super(props)
         this.inter = 0;
         this.state = {
             isLocalStorageChecked: false
         }
     }
+    componentWillMount() {
+        this.props.isLogedIn();
+    }
     render() {
-        let isAuth = false;
+        let { user } = this.props;
         if (this.inter++ < 1) {
             setTimeout(() => {
                 this.setState({ isLocalStorageChecked: true })
@@ -33,7 +39,7 @@ class AppRoutes extends Component {
         return (
             <BrowserRouter>
                 {
-                    isAuth ? (
+                    user ? (
                         <Switch>
                             <Route path='/' component={Dashboard} />
                         </Switch>
@@ -48,9 +54,11 @@ class AppRoutes extends Component {
     }
 }
 const mapStateToProps = (state) => ({
+    user: state.auth.user
 })
 const mapDispatchToProps = (dispatch) => (
     bindActionCreators({
+        isLogedIn
     }, dispatch)
 )
 

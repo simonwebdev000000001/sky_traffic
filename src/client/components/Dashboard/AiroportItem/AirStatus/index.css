@@ -1,0 +1,5 @@
+.my-table{
+    max-height: 240px;
+    overflow: auto;
+    width: 100%;
+}
