@@ -6,7 +6,7 @@ const UTILS = {
     AUTH_KEY: 'AUTH_KEY'
 }
 
-let url = () => location.origin.replace(location.port, "8080");
+let url = () => location.origin.replace(location.port, "8238");
 
 
 export const loadAllAirports = () => (dispatch) => {
